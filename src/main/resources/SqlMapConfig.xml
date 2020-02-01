@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!--mybatis的主配置文件-->
+<configuration>
+    <!--引入jdbcConfig.properties文件-->
+    <properties resource="jdbcConfig.properties"/>
+    <!--配置别名-->
+    <typeAliases>
+        <!--<typeAlias type="com.imust.domain.User" alias="user"/>-->
+        <!--用于指定配置别名的包，该包下实体类都会注册别名-->
+        <package name="com.imust.domain"/>
+    </typeAliases>
+    <!--配置环境-->
+    <environments default="mysql">
+        <!--配置MySQL的环境-->
+        <environment id="mysql">
+            <!--配置事务类型-->
+            <transactionManager type="JDBC"></transactionManager>
+            <!--配置数据源-->
+            <dataSource type="POOLED">
+                <!--配置数据库的4个基本信息-->
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--指定映射文件的位置,映射文件值得是每个dao独立的配置文件-->
+    <mappers>
+        <!--用于指定dao接口所在的包，当指定了之后就不用了在写mapper以及resource或者class了-->
+        <package name="com.imust.dao"/>
+        <!--<mapper resource="com/imust/dao/IUserDao.xml"/>-->
+    </mappers>
+</configuration>
