@@ -5,6 +5,12 @@
 
 <!--mybatis的主配置文件-->
 <configuration>
+
+    <!--<settings>-->
+        <!--<setting name="com.imust.domain" value="true"/>-->
+    <!--</settings>-->
+
+
     <!--引入jdbcConfig.properties文件-->
     <properties resource="jdbcConfig.properties"/>
     <!--配置别名-->

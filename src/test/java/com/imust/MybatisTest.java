@@ -151,4 +151,22 @@ public class MybatisTest {
             System.out.println(userById);
         }
     }
+
+    /**
+     * Mybatis中的一级缓存：
+     *  一级缓存：
+     *      他指的是Mybatis中SqlSession对象的缓存。
+     *      当我们执行查询之后，查询的结果会同时存入到SQLSession为我们提供一块区域中。
+     *      该区域的结构是一个Map。当我们再次查询同样的数据，Mybatis会先去SQLSession中
+     *      查询是否有，有的话直接拿出来。
+     *      当SQLSession对象消失时，Mybatis的一级缓存也就是消失了。
+     *
+     *  二级缓存：
+     *      它指的是Mybatis中SQLSessionFactory对象的缓存。又同一个SQLSessionFactory对象创建的
+     *      SQLSession共享缓存
+     *      二级缓存的使用步骤：
+     *          第一步：让Mybatis框架支持二级缓存（在SQLMapConfig.xml中配置）
+     *          第二步：让当前映射文件支持二级缓存（在IUserDao.xml中配置）
+     *          第三步：让当前的操作支持二级缓存（在select标签中配置）
+     */
 }
